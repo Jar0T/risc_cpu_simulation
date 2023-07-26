@@ -72,8 +72,11 @@
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
-    <comp loc="(520,290)" name="PC_v1"/>
-    <comp loc="(760,480)" name="I_Memory_v1"/>
+    <comp loc="(480,300)" name="PC_v1"/>
+    <comp loc="(720,340)" name="I_Memory_v1"/>
+    <wire from="(480,300)" to="(490,300)"/>
+    <wire from="(490,300)" to="(490,340)"/>
+    <wire from="(490,340)" to="(500,340)"/>
   </circuit>
   <circuit name="PC_v1">
     <a name="appearance" val="logisim_evolution"/>
@@ -202,7 +205,7 @@
     <comp lib="0" loc="(780,290)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="Wait_mem"/>
+      <a name="label" val="Stall"/>
       <a name="output" val="true"/>
       <a name="radix" val="16"/>
     </comp>
