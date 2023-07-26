@@ -9,8 +9,16 @@
   </lib>
   <lib desc="#Gates" name="1"/>
   <lib desc="#Plexers" name="2"/>
-  <lib desc="#Arithmetic" name="3"/>
-  <lib desc="#Memory" name="4"/>
+  <lib desc="#Arithmetic" name="3">
+    <tool name="Adder">
+      <a name="width" val="32"/>
+    </tool>
+  </lib>
+  <lib desc="#Memory" name="4">
+    <tool name="Register">
+      <a name="width" val="32"/>
+    </tool>
+  </lib>
   <lib desc="#I/O" name="5"/>
   <lib desc="#TTL" name="6"/>
   <lib desc="#TCL" name="7"/>
@@ -35,10 +43,15 @@
     <tool lib="8" name="Wiring Tool"/>
     <tool lib="8" name="Text Tool"/>
     <sep/>
-    <tool lib="0" name="Pin"/>
+    <tool lib="0" name="Pin">
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
+    </tool>
     <tool lib="0" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
     </tool>
     <sep/>
     <tool lib="1" name="NOT Gate"/>
@@ -56,5 +69,75 @@
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp loc="(520,290)" name="PC_v1"/>
+  </circuit>
+  <circuit name="PC_v1">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="PC_v1"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(290,320)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="PC_In"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(290,350)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="PC_Select"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(290,380)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="CLK"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(290,410)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="Reset"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(330,300)" name="Constant">
+      <a name="value" val="0x4"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(450,360)" name="Constant"/>
+    <comp lib="0" loc="(580,340)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="PC_Out"/>
+      <a name="output" val="true"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="2" loc="(430,310)" name="Multiplexer">
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="3" loc="(380,290)" name="Adder">
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="4" loc="(450,310)" name="Register">
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="width" val="32"/>
+    </comp>
+    <wire from="(290,320)" to="(400,320)"/>
+    <wire from="(290,350)" to="(410,350)"/>
+    <wire from="(290,380)" to="(450,380)"/>
+    <wire from="(290,410)" to="(480,410)"/>
+    <wire from="(330,260)" to="(330,280)"/>
+    <wire from="(330,260)" to="(520,260)"/>
+    <wire from="(330,280)" to="(340,280)"/>
+    <wire from="(330,300)" to="(340,300)"/>
+    <wire from="(380,290)" to="(390,290)"/>
+    <wire from="(390,290)" to="(390,300)"/>
+    <wire from="(390,300)" to="(400,300)"/>
+    <wire from="(410,330)" to="(410,350)"/>
+    <wire from="(430,310)" to="(440,310)"/>
+    <wire from="(440,310)" to="(440,340)"/>
+    <wire from="(440,340)" to="(450,340)"/>
+    <wire from="(480,400)" to="(480,410)"/>
+    <wire from="(510,340)" to="(520,340)"/>
+    <wire from="(520,260)" to="(520,340)"/>
+    <wire from="(520,340)" to="(580,340)"/>
   </circuit>
 </project>
