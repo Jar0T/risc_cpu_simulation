@@ -200,6 +200,7 @@
     </comp>
     <comp loc="(1100,680)" name="Imm_decoder"/>
     <comp loc="(1140,380)" name="Reg_File"/>
+    <comp loc="(1930,370)" name="ALU"/>
     <comp loc="(480,430)" name="PC_v1"/>
     <comp loc="(540,440)" name="I_Memory"/>
     <comp loc="(830,410)" name="IF_ID_Reg"/>
@@ -3163,7 +3164,7 @@
     <wire from="(350,240)" to="(400,240)"/>
   </circuit>
   <circuit name="ALU">
-    <a name="appearance" val="logisim_evolution"/>
+    <a name="appearance" val="custom"/>
     <a name="circuit" val="ALU"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
@@ -3214,7 +3215,6 @@
     <comp lib="0" loc="(290,790)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="Imm"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(310,240)" name="Pin">
       <a name="appearance" val="NewPins"/>
