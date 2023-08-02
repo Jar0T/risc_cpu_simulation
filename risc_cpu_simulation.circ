@@ -79,6 +79,7 @@
   </lib>
   <lib desc="#Plexers" name="2">
     <tool name="Multiplexer">
+      <a name="select" val="2"/>
       <a name="width" val="32"/>
     </tool>
     <tool name="Demultiplexer">
@@ -166,23 +167,23 @@
     <a name="simulationFrequency" val="1.0"/>
     <comp lib="0" loc="(1410,550)" name="Constant"/>
     <comp lib="0" loc="(1980,430)" name="Constant"/>
+    <comp lib="0" loc="(2450,350)" name="Constant"/>
     <comp lib="0" loc="(390,450)" name="Clock"/>
     <comp lib="0" loc="(390,470)" name="Pin">
       <a name="appearance" val="NewPins"/>
     </comp>
     <comp lib="0" loc="(620,210)" name="Constant"/>
     <comp lib="0" loc="(820,250)" name="Constant"/>
-    <comp lib="0" loc="(980,600)" name="Probe">
-      <a name="appearance" val="classic"/>
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-    </comp>
     <comp lib="2" loc="(1730,580)" name="Multiplexer">
       <a name="selloc" val="tr"/>
       <a name="width" val="32"/>
     </comp>
     <comp lib="2" loc="(1730,660)" name="Multiplexer">
       <a name="selloc" val="tr"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="2" loc="(2660,300)" name="Multiplexer">
+      <a name="select" val="2"/>
       <a name="width" val="32"/>
     </comp>
     <comp lib="4" loc="(620,160)" name="Register">
@@ -198,13 +199,22 @@
     <comp loc="(1740,560)" name="ALU"/>
     <comp loc="(1990,170)" name="EX_MEM_Reg"/>
     <comp loc="(2170,440)" name="D_Memory"/>
-    <comp loc="(2670,190)" name="MEM_WB_Reg"/>
+    <comp loc="(2460,170)" name="MEM_WB_Reg"/>
     <comp loc="(480,400)" name="PC"/>
     <comp loc="(630,440)" name="I_Memory"/>
     <comp loc="(830,170)" name="IF_ID_Reg"/>
+    <wire from="(1060,580)" to="(1060,790)"/>
+    <wire from="(1060,580)" to="(1100,580)"/>
+    <wire from="(1060,790)" to="(2670,790)"/>
+    <wire from="(1070,600)" to="(1070,780)"/>
+    <wire from="(1070,600)" to="(1100,600)"/>
+    <wire from="(1070,780)" to="(2570,780)"/>
     <wire from="(1080,450)" to="(1100,450)"/>
     <wire from="(1080,470)" to="(1090,470)"/>
     <wire from="(1080,490)" to="(1160,490)"/>
+    <wire from="(1080,620)" to="(1080,770)"/>
+    <wire from="(1080,620)" to="(1100,620)"/>
+    <wire from="(1080,770)" to="(2560,770)"/>
     <wire from="(1090,470)" to="(1090,540)"/>
     <wire from="(1090,470)" to="(1150,470)"/>
     <wire from="(1090,540)" to="(1100,540)"/>
@@ -309,11 +319,18 @@
     <wire from="(1970,450)" to="(1980,450)"/>
     <wire from="(1970,740)" to="(2150,740)"/>
     <wire from="(2030,480)" to="(2030,760)"/>
+    <wire from="(2030,760)" to="(2500,760)"/>
+    <wire from="(2080,190)" to="(2450,190)"/>
+    <wire from="(2080,210)" to="(2450,210)"/>
     <wire from="(2080,230)" to="(2120,230)"/>
     <wire from="(2080,250)" to="(2110,250)"/>
+    <wire from="(2080,270)" to="(2290,270)"/>
+    <wire from="(2080,290)" to="(2300,290)"/>
     <wire from="(2080,310)" to="(2130,310)"/>
+    <wire from="(2080,350)" to="(2310,350)"/>
     <wire from="(2080,370)" to="(2140,370)"/>
     <wire from="(2080,390)" to="(2150,390)"/>
+    <wire from="(2080,410)" to="(2340,410)"/>
     <wire from="(2110,250)" to="(2110,530)"/>
     <wire from="(2110,530)" to="(2160,530)"/>
     <wire from="(2120,230)" to="(2120,510)"/>
@@ -323,10 +340,47 @@
     <wire from="(2140,370)" to="(2140,470)"/>
     <wire from="(2140,470)" to="(2160,470)"/>
     <wire from="(2150,390)" to="(2150,450)"/>
+    <wire from="(2150,390)" to="(2320,390)"/>
     <wire from="(2150,450)" to="(2160,450)"/>
     <wire from="(2150,550)" to="(2150,740)"/>
     <wire from="(2150,550)" to="(2160,550)"/>
+    <wire from="(2150,740)" to="(2440,740)"/>
+    <wire from="(2290,230)" to="(2290,270)"/>
+    <wire from="(2290,230)" to="(2450,230)"/>
+    <wire from="(2300,250)" to="(2300,290)"/>
+    <wire from="(2300,250)" to="(2450,250)"/>
+    <wire from="(2310,270)" to="(2310,350)"/>
+    <wire from="(2310,270)" to="(2450,270)"/>
     <wire from="(2310,450)" to="(2330,450)"/>
+    <wire from="(2320,290)" to="(2320,390)"/>
+    <wire from="(2320,290)" to="(2450,290)"/>
+    <wire from="(2330,310)" to="(2330,450)"/>
+    <wire from="(2330,310)" to="(2450,310)"/>
+    <wire from="(2340,330)" to="(2340,410)"/>
+    <wire from="(2340,330)" to="(2450,330)"/>
+    <wire from="(2440,370)" to="(2440,740)"/>
+    <wire from="(2440,370)" to="(2450,370)"/>
+    <wire from="(2500,400)" to="(2500,760)"/>
+    <wire from="(2550,210)" to="(2610,210)"/>
+    <wire from="(2550,230)" to="(2560,230)"/>
+    <wire from="(2550,250)" to="(2590,250)"/>
+    <wire from="(2550,270)" to="(2570,270)"/>
+    <wire from="(2550,290)" to="(2620,290)"/>
+    <wire from="(2550,310)" to="(2600,310)"/>
+    <wire from="(2550,330)" to="(2610,330)"/>
+    <wire from="(2560,230)" to="(2560,770)"/>
+    <wire from="(2570,270)" to="(2570,780)"/>
+    <wire from="(2590,250)" to="(2590,340)"/>
+    <wire from="(2590,340)" to="(2640,340)"/>
+    <wire from="(2600,300)" to="(2600,310)"/>
+    <wire from="(2600,300)" to="(2620,300)"/>
+    <wire from="(2610,210)" to="(2610,280)"/>
+    <wire from="(2610,280)" to="(2620,280)"/>
+    <wire from="(2610,310)" to="(2610,330)"/>
+    <wire from="(2610,310)" to="(2620,310)"/>
+    <wire from="(2640,320)" to="(2640,340)"/>
+    <wire from="(2660,300)" to="(2670,300)"/>
+    <wire from="(2670,300)" to="(2670,790)"/>
     <wire from="(390,450)" to="(460,450)"/>
     <wire from="(390,470)" to="(450,470)"/>
     <wire from="(450,470)" to="(450,760)"/>
@@ -372,9 +426,7 @@
     <wire from="(970,400)" to="(1000,400)"/>
     <wire from="(970,400)" to="(970,450)"/>
     <wire from="(970,450)" to="(1000,450)"/>
-    <wire from="(970,450)" to="(970,600)"/>
-    <wire from="(970,600)" to="(970,710)"/>
-    <wire from="(970,600)" to="(980,600)"/>
+    <wire from="(970,450)" to="(970,710)"/>
     <wire from="(970,710)" to="(1230,710)"/>
   </circuit>
   <circuit name="PC">
@@ -564,8 +616,8 @@
       <a name="addrWidth" val="16"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 16 32
-97 a083 3e800093 13 13 7d008113 13 13
-c1810193 13 13 83018213 13 13 3e820293 5078793
+2083 3e800093 13 13 7d008113 13 13 c1810193
+13 13 83018213 13 13 3e820293 13 502023
 5580813 5a88893 5f90913 6498993 69a0a13 6ea8a93 73b0b13 78b8b93
 7dc0c13 82c8c93 87d0d13 8cd8d93 91e0e13 96e8e93 9bf0f13 a0f8f93
 </a>
@@ -5105,13 +5157,6 @@ c1810193 13 13 83018213 13 13 3e820293 5078793
     <a name="simulationFrequency" val="1.0"/>
     <appear>
       <rect fill="none" height="220" stroke="#000000" stroke-width="2" width="80" x="60" y="50"/>
-      <visible-register height="10" path="/Register(380,200)" stroke-width="0" width="53" x="73" y="59"/>
-      <visible-register height="10" path="/Register(380,330)" stroke-width="0" width="53" x="73" y="79"/>
-      <visible-register height="10" path="/Register(380,590)" stroke-width="0" width="6" x="97" y="119"/>
-      <visible-register height="10" path="/Register(380,720)" stroke-width="0" width="13" x="94" y="139"/>
-      <visible-register height="10" path="/Register(380,850)" stroke-width="0" width="53" x="73" y="159"/>
-      <visible-register height="10" path="/Register(380,980)" stroke-width="0" width="53" x="73" y="179"/>
-      <visible-register height="10" path="/Register(380,1110)" stroke-width="0" width="53" x="73" y="199"/>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="100" y="73">PC</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="99" y="93">PC+4</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="100" y="110">WB</text>
@@ -5142,6 +5187,13 @@ c1810193 13 13 83018213 13 13 3e820293 5078793
       <polyline fill="none" points="141,210 149,210" stroke="#000000" stroke-width="3"/>
       <polyline fill="none" points="100,271 100,279" stroke="#000000" stroke-width="3"/>
       <polyline fill="none" points="61,245 70,250 61,255" stroke="#000000" stroke-width="2"/>
+      <visible-register height="10" path="/Register(380,200)" stroke-width="0" width="53" x="73" y="59"/>
+      <visible-register height="10" path="/Register(380,330)" stroke-width="0" width="53" x="73" y="79"/>
+      <visible-register height="10" path="/Register(380,590)" stroke-width="0" width="6" x="97" y="119"/>
+      <visible-register height="10" path="/Register(380,720)" stroke-width="0" width="13" x="94" y="139"/>
+      <visible-register height="10" path="/Register(380,850)" stroke-width="0" width="53" x="73" y="159"/>
+      <visible-register height="10" path="/Register(380,980)" stroke-width="0" width="53" x="73" y="179"/>
+      <visible-register height="10" path="/Register(380,1110)" stroke-width="0" width="53" x="73" y="199"/>
       <circ-anchor facing="east" x="60" y="50"/>
       <circ-port dir="in" pin="330,1010" x="50" y="190"/>
       <circ-port dir="in" pin="330,1140" x="50" y="210"/>
