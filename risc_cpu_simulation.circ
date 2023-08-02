@@ -101,6 +101,10 @@
     <tool name="Register">
       <a name="width" val="32"/>
     </tool>
+    <tool name="RAM">
+      <a name="addrWidth" val="24"/>
+      <a name="dataWidth" val="32"/>
+    </tool>
   </lib>
   <lib desc="#I/O" name="5"/>
   <lib desc="#TTL" name="6"/>
@@ -193,6 +197,7 @@
     <comp loc="(1420,170)" name="ID_EX_Reg"/>
     <comp loc="(1740,560)" name="ALU"/>
     <comp loc="(1990,170)" name="EX_MEM_Reg"/>
+    <comp loc="(2170,440)" name="D_Memory"/>
     <comp loc="(480,400)" name="PC"/>
     <comp loc="(630,440)" name="I_Memory"/>
     <comp loc="(830,170)" name="IF_ID_Reg"/>
@@ -301,7 +306,26 @@
     <wire from="(1940,410)" to="(1980,410)"/>
     <wire from="(1970,450)" to="(1970,740)"/>
     <wire from="(1970,450)" to="(1980,450)"/>
+    <wire from="(1970,740)" to="(2150,740)"/>
     <wire from="(2030,480)" to="(2030,760)"/>
+    <wire from="(2080,230)" to="(2120,230)"/>
+    <wire from="(2080,250)" to="(2110,250)"/>
+    <wire from="(2080,310)" to="(2130,310)"/>
+    <wire from="(2080,370)" to="(2140,370)"/>
+    <wire from="(2080,390)" to="(2150,390)"/>
+    <wire from="(2110,250)" to="(2110,530)"/>
+    <wire from="(2110,530)" to="(2160,530)"/>
+    <wire from="(2120,230)" to="(2120,510)"/>
+    <wire from="(2120,510)" to="(2160,510)"/>
+    <wire from="(2130,310)" to="(2130,490)"/>
+    <wire from="(2130,490)" to="(2160,490)"/>
+    <wire from="(2140,370)" to="(2140,470)"/>
+    <wire from="(2140,470)" to="(2160,470)"/>
+    <wire from="(2150,390)" to="(2150,450)"/>
+    <wire from="(2150,450)" to="(2160,450)"/>
+    <wire from="(2150,550)" to="(2150,740)"/>
+    <wire from="(2150,550)" to="(2160,550)"/>
+    <wire from="(2310,450)" to="(2330,450)"/>
     <wire from="(390,450)" to="(460,450)"/>
     <wire from="(390,470)" to="(450,470)"/>
     <wire from="(450,470)" to="(450,760)"/>
@@ -539,8 +563,8 @@
       <a name="addrWidth" val="16"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 16 32
-3e800093 13 13 7d008113 13 13 c1810193 13
-13 83018213 13 13 3e820293 4668693 4b70713 5078793
+97 a083 3e800093 13 13 7d008113 13 13
+c1810193 13 13 83018213 13 13 3e820293 5078793
 5580813 5a88893 5f90913 6498993 69a0a13 6ea8a93 73b0b13 78b8b93
 7dc0c13 82c8c93 87d0d13 8cd8d93 91e0e13 96e8e93 9bf0f13 a0f8f93
 </a>
@@ -4534,15 +4558,6 @@
     <a name="simulationFrequency" val="1.0"/>
     <appear>
       <rect fill="none" height="300" stroke="#000000" stroke-width="2" width="80" x="60" y="40"/>
-      <visible-register height="10" path="/Register(380,70)" stroke-width="0" width="53" x="73" y="49"/>
-      <visible-register height="10" path="/Register(380,200)" stroke-width="0" width="53" x="73" y="69"/>
-      <visible-register height="10" path="/Register(380,720)" stroke-width="0" width="6" x="97" y="149"/>
-      <visible-register height="10" path="/Register(380,850)" stroke-width="0" width="6" x="97" y="169"/>
-      <visible-register height="10" path="/Register(380,980)" stroke-width="0" width="13" x="94" y="189"/>
-      <visible-register height="10" path="/Register(380,1110)" stroke-width="0" width="13" x="94" y="209"/>
-      <visible-register height="10" path="/Register(380,1240)" stroke-width="0" width="53" x="74" y="229"/>
-      <visible-register height="10" path="/Register(380,1370)" stroke-width="0" width="53" x="74" y="249"/>
-      <visible-register height="10" path="/Register(380,1500)" stroke-width="0" width="53" x="74" y="269"/>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="100" y="63">PC</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="99" y="83">PC+4</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="100" y="99">Mem RD</text>
@@ -4585,6 +4600,15 @@
       <polyline fill="none" points="141,280 149,280" stroke="#000000" stroke-width="3"/>
       <polyline fill="none" points="100,341 100,349" stroke="#000000" stroke-width="3"/>
       <polyline fill="none" points="61,315 71,320 61,325" stroke="#000000" stroke-width="2"/>
+      <visible-register height="10" path="/Register(380,70)" stroke-width="0" width="53" x="73" y="49"/>
+      <visible-register height="10" path="/Register(380,200)" stroke-width="0" width="53" x="73" y="69"/>
+      <visible-register height="10" path="/Register(380,720)" stroke-width="0" width="6" x="97" y="149"/>
+      <visible-register height="10" path="/Register(380,850)" stroke-width="0" width="6" x="97" y="169"/>
+      <visible-register height="10" path="/Register(380,980)" stroke-width="0" width="13" x="94" y="189"/>
+      <visible-register height="10" path="/Register(380,1110)" stroke-width="0" width="13" x="94" y="209"/>
+      <visible-register height="10" path="/Register(380,1240)" stroke-width="0" width="53" x="74" y="229"/>
+      <visible-register height="10" path="/Register(380,1370)" stroke-width="0" width="53" x="74" y="249"/>
+      <visible-register height="10" path="/Register(380,1500)" stroke-width="0" width="53" x="74" y="269"/>
       <circ-anchor facing="east" x="60" y="40"/>
       <circ-port dir="in" pin="330,100" x="50" y="60"/>
       <circ-port dir="in" pin="330,1010" x="50" y="200"/>
@@ -4965,5 +4989,133 @@
     <wire from="(440,620)" to="(490,620)"/>
     <wire from="(440,750)" to="(490,750)"/>
     <wire from="(440,880)" to="(490,880)"/>
+  </circuit>
+  <circuit name="D_Memory">
+    <a name="appearance" val="custom"/>
+    <a name="circuit" val="D_Memory"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <appear>
+      <rect fill="none" height="120" stroke="#000000" stroke-width="2" width="130" x="60" y="50"/>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="start" x="67" y="59">Addr</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="start" x="66" y="79">D In</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="start" x="66" y="99">Funct3</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="start" x="66" y="119">RD</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="start" x="67" y="139">WR</text>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="end" x="183" y="59">D Out</text>
+      <polyline fill="none" points="191,60 199,60" stroke="#000000" stroke-width="3"/>
+      <polyline fill="none" points="51,60 59,60" stroke="#000000" stroke-width="3"/>
+      <polyline fill="none" points="51,80 59,80" stroke="#000000" stroke-width="3"/>
+      <polyline fill="none" points="51,100 59,100" stroke="#000000" stroke-width="3"/>
+      <polyline fill="none" points="51,120 59,120" stroke="#000000" stroke-width="3"/>
+      <polyline fill="none" points="51,140 59,140" stroke="#000000" stroke-width="3"/>
+      <polyline fill="none" points="51,160 59,160" stroke="#000000" stroke-width="3"/>
+      <polyline fill="none" points="61,155 71,160 61,165" stroke="#000000" stroke-width="2"/>
+      <circ-anchor facing="east" x="60" y="50"/>
+      <circ-port dir="in" pin="260,170" x="50" y="60"/>
+      <circ-port dir="in" pin="260,200" x="50" y="80"/>
+      <circ-port dir="in" pin="260,230" x="50" y="100"/>
+      <circ-port dir="in" pin="260,260" x="50" y="140"/>
+      <circ-port dir="in" pin="260,290" x="50" y="120"/>
+      <circ-port dir="in" pin="260,320" x="50" y="160"/>
+      <circ-port dir="out" pin="820,250" x="200" y="60"/>
+    </appear>
+    <comp lib="0" loc="(260,170)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="Addr"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(260,200)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="Data_In"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(260,230)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="Funct3"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="3"/>
+    </comp>
+    <comp lib="0" loc="(260,260)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="WR"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(260,290)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="RD"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(260,320)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="Clk"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(270,170)" name="Splitter">
+      <a name="appear" val="center"/>
+      <a name="bit1" val="0"/>
+      <a name="bit10" val="0"/>
+      <a name="bit11" val="0"/>
+      <a name="bit12" val="0"/>
+      <a name="bit13" val="0"/>
+      <a name="bit14" val="0"/>
+      <a name="bit15" val="0"/>
+      <a name="bit16" val="0"/>
+      <a name="bit17" val="0"/>
+      <a name="bit18" val="0"/>
+      <a name="bit19" val="0"/>
+      <a name="bit2" val="0"/>
+      <a name="bit20" val="0"/>
+      <a name="bit21" val="0"/>
+      <a name="bit22" val="0"/>
+      <a name="bit23" val="0"/>
+      <a name="bit24" val="none"/>
+      <a name="bit25" val="none"/>
+      <a name="bit26" val="none"/>
+      <a name="bit27" val="none"/>
+      <a name="bit28" val="none"/>
+      <a name="bit29" val="none"/>
+      <a name="bit3" val="0"/>
+      <a name="bit30" val="none"/>
+      <a name="bit31" val="none"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="0"/>
+      <a name="bit6" val="0"/>
+      <a name="bit7" val="0"/>
+      <a name="bit8" val="0"/>
+      <a name="bit9" val="0"/>
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="32"/>
+    </comp>
+    <comp lib="0" loc="(820,250)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="Data_Out"/>
+      <a name="output" val="true"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="4" loc="(530,160)" name="RAM">
+      <a name="addrWidth" val="24"/>
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="dataWidth" val="32"/>
+    </comp>
+    <wire from="(260,170)" to="(270,170)"/>
+    <wire from="(260,200)" to="(480,200)"/>
+    <wire from="(260,260)" to="(490,260)"/>
+    <wire from="(260,290)" to="(500,290)"/>
+    <wire from="(260,320)" to="(510,320)"/>
+    <wire from="(290,170)" to="(530,170)"/>
+    <wire from="(480,200)" to="(480,250)"/>
+    <wire from="(480,250)" to="(530,250)"/>
+    <wire from="(490,210)" to="(490,260)"/>
+    <wire from="(490,210)" to="(530,210)"/>
+    <wire from="(500,220)" to="(500,290)"/>
+    <wire from="(500,220)" to="(530,220)"/>
+    <wire from="(510,230)" to="(510,320)"/>
+    <wire from="(510,230)" to="(530,230)"/>
+    <wire from="(770,250)" to="(820,250)"/>
   </circuit>
 </project>
