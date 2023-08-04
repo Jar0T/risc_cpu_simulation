@@ -3534,13 +3534,17 @@
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="start" x="284" y="290">B</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="start" x="339" y="251">Y</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="start" x="304" y="251">ALU</text>
+      <polyline fill="none" points="330,191 330,219" stroke="#000000" stroke-width="3"/>
+      <polyline fill="none" points="310,192 310,207" stroke="#000000" stroke-width="3"/>
       <circ-anchor facing="east" x="280" y="190"/>
       <circ-port dir="in" pin="290,750" x="300" y="190"/>
-      <circ-port dir="in" pin="290,770" x="320" y="190"/>
-      <circ-port dir="in" pin="290,790" x="340" y="190"/>
+      <circ-port dir="in" pin="290,770" x="310" y="190"/>
+      <circ-port dir="in" pin="290,790" x="320" y="190"/>
+      <circ-port dir="in" pin="290,810" x="330" y="190"/>
+      <circ-port dir="in" pin="290,830" x="340" y="190"/>
       <circ-port dir="in" pin="310,240" x="270" y="210"/>
       <circ-port dir="in" pin="310,260" x="270" y="290"/>
-      <circ-port dir="out" pin="700,470" x="360" y="250"/>
+      <circ-port dir="out" pin="750,460" x="360" y="250"/>
     </appear>
     <comp lib="0" loc="(290,750)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -3569,6 +3573,17 @@
     <comp lib="0" loc="(290,790)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="Imm"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(290,810)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="Jump"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(290,830)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="Branch"/>
+      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(310,240)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -3631,7 +3646,7 @@
       <a name="facing" val="west"/>
       <a name="spacing" val="2"/>
     </comp>
-    <comp lib="0" loc="(700,470)" name="Pin">
+    <comp lib="0" loc="(750,460)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="Y"/>
@@ -3651,6 +3666,10 @@
       <a name="size" val="30"/>
       <a name="width" val="32"/>
     </comp>
+    <comp lib="1" loc="(710,490)" name="OR Gate">
+      <a name="facing" val="north"/>
+      <a name="size" val="30"/>
+    </comp>
     <comp lib="2" loc="(550,580)" name="Multiplexer">
       <a name="width" val="32"/>
     </comp>
@@ -3660,6 +3679,9 @@
     </comp>
     <comp lib="2" loc="(680,470)" name="Multiplexer">
       <a name="select" val="3"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="2" loc="(730,460)" name="Multiplexer">
       <a name="width" val="32"/>
     </comp>
     <comp lib="3" loc="(490,250)" name="Adder">
@@ -3688,6 +3710,8 @@
     </comp>
     <wire from="(290,750)" to="(660,750)"/>
     <wire from="(290,790)" to="(540,790)"/>
+    <wire from="(290,810)" to="(700,810)"/>
+    <wire from="(290,830)" to="(720,830)"/>
     <wire from="(310,240)" to="(440,240)"/>
     <wire from="(310,260)" to="(370,260)"/>
     <wire from="(310,770)" to="(530,770)"/>
@@ -3749,6 +3773,8 @@
     <wire from="(530,260)" to="(550,260)"/>
     <wire from="(530,600)" to="(530,770)"/>
     <wire from="(530,770)" to="(540,770)"/>
+    <wire from="(540,230)" to="(540,250)"/>
+    <wire from="(540,230)" to="(690,230)"/>
     <wire from="(540,250)" to="(540,270)"/>
     <wire from="(540,250)" to="(550,250)"/>
     <wire from="(540,270)" to="(540,280)"/>
@@ -3776,6 +3802,12 @@
     <wire from="(630,500)" to="(640,500)"/>
     <wire from="(660,510)" to="(660,750)"/>
     <wire from="(680,470)" to="(700,470)"/>
+    <wire from="(690,230)" to="(690,450)"/>
+    <wire from="(690,450)" to="(700,450)"/>
+    <wire from="(700,520)" to="(700,810)"/>
+    <wire from="(710,480)" to="(710,490)"/>
+    <wire from="(720,520)" to="(720,830)"/>
+    <wire from="(730,460)" to="(750,460)"/>
   </circuit>
   <circuit name="Control_Unit">
     <a name="appearance" val="custom"/>
