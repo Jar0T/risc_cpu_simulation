@@ -3184,14 +3184,13 @@
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="start" x="284" y="290">B</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="start" x="339" y="251">Y</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="start" x="304" y="251">ALU</text>
-      <polyline fill="none" points="330,191 330,219" stroke="#000000" stroke-width="3"/>
       <polyline fill="none" points="310,192 310,207" stroke="#000000" stroke-width="3"/>
+      <text dominant-baseline="central" font-family="SansSerif" font-size="12" text-anchor="middle" x="330" y="232">SUM</text>
       <circ-anchor facing="east" x="280" y="190"/>
       <circ-port dir="in" pin="290,750" x="300" y="190"/>
       <circ-port dir="in" pin="290,770" x="310" y="190"/>
       <circ-port dir="in" pin="290,790" x="320" y="190"/>
-      <circ-port dir="in" pin="290,810" x="330" y="190"/>
-      <circ-port dir="in" pin="290,830" x="340" y="190"/>
+      <circ-port dir="in" pin="290,810" x="340" y="190"/>
       <circ-port dir="in" pin="310,240" x="270" y="210"/>
       <circ-port dir="in" pin="310,260" x="270" y="290"/>
       <circ-port dir="out" pin="750,460" x="360" y="250"/>
@@ -3223,17 +3222,10 @@
     <comp lib="0" loc="(290,790)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="Imm"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(290,810)" name="Pin">
       <a name="appearance" val="NewPins"/>
-      <a name="label" val="Jump"/>
-      <a name="radix" val="16"/>
-    </comp>
-    <comp lib="0" loc="(290,830)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="label" val="Branch"/>
-      <a name="radix" val="16"/>
+      <a name="label" val="Force_SUM"/>
     </comp>
     <comp lib="0" loc="(310,240)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -3316,10 +3308,6 @@
       <a name="size" val="30"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="1" loc="(710,490)" name="OR Gate">
-      <a name="facing" val="north"/>
-      <a name="size" val="30"/>
-    </comp>
     <comp lib="2" loc="(550,580)" name="Multiplexer">
       <a name="width" val="32"/>
     </comp>
@@ -3360,8 +3348,7 @@
     </comp>
     <wire from="(290,750)" to="(660,750)"/>
     <wire from="(290,790)" to="(540,790)"/>
-    <wire from="(290,810)" to="(700,810)"/>
-    <wire from="(290,830)" to="(720,830)"/>
+    <wire from="(290,810)" to="(710,810)"/>
     <wire from="(310,240)" to="(440,240)"/>
     <wire from="(310,260)" to="(370,260)"/>
     <wire from="(310,770)" to="(530,770)"/>
@@ -3454,9 +3441,7 @@
     <wire from="(680,470)" to="(700,470)"/>
     <wire from="(690,230)" to="(690,450)"/>
     <wire from="(690,450)" to="(700,450)"/>
-    <wire from="(700,520)" to="(700,810)"/>
-    <wire from="(710,480)" to="(710,490)"/>
-    <wire from="(720,520)" to="(720,830)"/>
+    <wire from="(710,480)" to="(710,810)"/>
     <wire from="(730,460)" to="(750,460)"/>
   </circuit>
 </project>
